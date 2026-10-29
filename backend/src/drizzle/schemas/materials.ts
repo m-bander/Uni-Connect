@@ -14,7 +14,10 @@ export const MaterialTable = pgTable("material", {
   category: materialCategories().notNull(),
   uploaded_at: timestamp({ withTimezone: true }).defaultNow().notNull(),
   uploader_id: uuid()
-    .references(() => UsersTable.id)
+    .references(() => UsersTable.id, {
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    })
     .notNull(),
   file_id: uuid()
     .references(() => FileTable.id)
