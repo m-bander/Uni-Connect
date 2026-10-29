@@ -26,7 +26,8 @@ export const verifyAuth: RequestHandler = async (
   try {
     const decoded = jwt.verify(
       token,
-      process.env.ACCESS_TOKEN_SECRET!
+      process.env.ACCESS_TOKEN_SECRET ||
+        "uniconnect_default_access_token_secret_key_2026_x99_sec"
     ) as AccessTokenPayload;
 
     if(process.env.UNICONNECT_PUBLIC_HOST==="1"){

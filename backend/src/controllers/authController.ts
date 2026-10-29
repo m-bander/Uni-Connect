@@ -75,6 +75,7 @@ export const login: RequestHandler = async (
       user: authUser,
     });
   } catch (err) {
+    console.error("Login error:", err);
     if (err instanceof z.ZodError)
       return res.status(400).json({ message: "Invalid login data" });
 
@@ -110,7 +111,8 @@ export const handleRefreshToken: RequestHandler = async (
 
     const decoded = jwt.verify(
       refreshToken,
-      process.env.REFRESH_TOKEN_SECRET!
+      process.env.REFRESH_TOKEN_SECRET ||
+        "uniconnect_default_refresh_token_secret_key_2026_x99_sec"
     ) as RefreshTokenPayload;
 
     clearRefreshTokenCookie(res);
