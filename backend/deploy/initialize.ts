@@ -35,6 +35,12 @@ export async function initializeDatabase() {
       await client.query("INSERT INTO app_migration(name) VALUES('campus-content-v1')");
     }
     await retireStarterAccounts(drizzle(client,{schema}));
+    const tablesRes = await client.query("SELECT tablename FROM pg_tables WHERE schemaname = 'public'");
+    for (const t of tablesRes.rows) {
+      await client.query(`ALTER TABLE "public"."${t.tablename}" ENABLE ROW LEVEL SECURITY`);
+    }
+    await client.query("REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon, authenticated");
+    await client.query("GRANT ALL ON ALL TABLES IN SCHEMA public TO postgres, service_role");
     await client.query("COMMIT");
   }catch(error){await client.query("ROLLBACK");throw error}
   finally{client.release();await pool.end()}
