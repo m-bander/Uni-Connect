@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-26T17:45:44.534Z",
+  "environment": "Local PGlite, not a production capacity test",
+  "endpoint": "GET /api/courses",
+  "requests": 50,
+  "concurrency": 5,
+  "successful": 50,
+  "durationMs": 369,
+  "medianMs": 22,
+  "p95Ms": 39,
+  "maxMs": 40
+}

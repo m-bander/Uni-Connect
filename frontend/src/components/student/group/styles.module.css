@@ -1,0 +1,12 @@
+.messageGroup {
+  grid-template-areas: "avatar content";
+  grid-template-columns: calc(var(--spacing) * 8) 1fr;
+}
+
+.avatar {
+  grid-area: avatar;
+}
+
+.content {
+  grid-area: content;
+}

@@ -1,0 +1,3 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+export default function NotFound(){return <main className="min-h-screen flex items-center justify-center p-6 text-center"><div className="max-w-md space-y-4"><p className="text-primary font-semibold">404</p><h1 className="text-3xl font-bold">Page not found</h1><p className="text-muted-foreground">This page may have moved or the link may be incorrect.</p><div className="flex justify-center gap-3"><Button asChild><Link to="/">Go home</Link></Button><Button variant="outline" asChild><Link to="/catalog">Browse courses</Link></Button></div></div></main>}

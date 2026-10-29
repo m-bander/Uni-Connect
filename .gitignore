@@ -1,0 +1,14 @@
+node_modules/
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/.env
+**/.env.local
+**/.env.*.local
+**/qa/artifacts/
+**/qa/test-results/
+*.log
+*.tsbuildinfo
+.data/
+**/~$*
+.DS_Store

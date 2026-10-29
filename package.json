@@ -1,0 +1,26 @@
+{
+  "name": "uniconnect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UniConnect university learning and communication platform",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "setup": "node scripts/manage.mjs setup",
+    "dev": "node scripts/manage.mjs dev",
+    "test": "node scripts/manage.mjs test",
+    "test:smoke": "node scripts/manage.mjs smoke",
+    "test:report": "node scripts/manage.mjs report",
+    "build": "node scripts/manage.mjs build",
+    "test:public": "node scripts/manage.mjs public",
+    "dev:campus": "node scripts/manage.mjs campus",
+    "test:campus": "node scripts/manage.mjs campus-test",
+    "dev:qa": "node scripts/manage.mjs qa",
+    "test:baseline": "node scripts/manage.mjs baseline",
+    "setup:testing": "node scripts/manage.mjs setup-testing"
+  },
+  "devDependencies": {
+    "pnpm": "11.25.0"
+  }
+}

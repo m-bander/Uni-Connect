@@ -1,0 +1,333 @@
+{
+  "origin": "https://unicomnect-test.vercel.app",
+  "checkedAt": "2026-10-29T14:17:52.676Z",
+  "passed": 65,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Public catalogue",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Eight populated subject categories",
+      "passed": true,
+      "detail": 8
+    },
+    {
+      "name": "Expanded course catalogue",
+      "passed": true,
+      "detail": 25
+    },
+    {
+      "name": "Realistic categories have courses",
+      "passed": true,
+      "detail": "At least three in each category"
+    },
+    {
+      "name": "Invalid signup rejected",
+      "passed": true,
+      "detail": "400"
+    },
+    {
+      "name": "Public admin registration denied",
+      "passed": true,
+      "detail": "400"
+    },
+    {
+      "name": "admin@uniconnect.test login",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "No password in login response",
+      "passed": true,
+      "detail": "admin@uniconnect.test"
+    },
+    {
+      "name": "Register student",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "learner-mvtmniwq@uniconnect.test login",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "No password in login response",
+      "passed": true,
+      "detail": "learner-mvtmniwq@uniconnect.test"
+    },
+    {
+      "name": "Register professor/ta",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "teacher-mvtmniwq@uniconnect.test login",
+      "passed": true,
+      "detail": "401"
+    },
+    {
+      "name": "Find instructor for approval",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Pending instructor exists",
+      "passed": true,
+      "detail": "Found"
+    },
+    {
+      "name": "Admin approves instructor",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "teacher-mvtmniwq@uniconnect.test login",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "No password in login response",
+      "passed": true,
+      "detail": "teacher-mvtmniwq@uniconnect.test"
+    },
+    {
+      "name": "Instructor creates categorized course",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "New category and description appear in catalogue",
+      "passed": true,
+      "detail": "Software Engineering"
+    },
+    {
+      "name": "Instructor edits course details",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Course edits persist in catalogue",
+      "passed": true,
+      "detail": "Computer Science"
+    },
+    {
+      "name": "Unenrolled course content protected",
+      "passed": true,
+      "detail": "403"
+    },
+    {
+      "name": "Student enrolls in course",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Enrolled course accessible",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Join populated course",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Populated materials library",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "All six resource categories populated",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "name": "Study guide downloads",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Actual PDF bytes",
+      "passed": true,
+      "detail": "PDF header"
+    },
+    {
+      "name": "Invalid download token denied",
+      "passed": true,
+      "detail": "404"
+    },
+    {
+      "name": "Anonymous upload denied",
+      "passed": true,
+      "detail": 401
+    },
+    {
+      "name": "Forged file format rejected",
+      "passed": true,
+      "detail": "400"
+    },
+    {
+      "name": "Authenticated persistent upload",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "Instructor publishes uploaded material",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "Instructor creates assignment",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Authenticated persistent upload",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "Student attaches submitted work",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Student turns in assignment",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Student cannot grade own work",
+      "passed": true,
+      "detail": "403"
+    },
+    {
+      "name": "Instructor grades submitted work",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Student sees grade and feedback",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Grade and attached file persisted",
+      "passed": true,
+      "detail": "{\"grade\":88,\"files\":1}"
+    },
+    {
+      "name": "Course group chat works",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "Chat sender bound to signed-in user",
+      "passed": true,
+      "detail": "User identity enforced"
+    },
+    {
+      "name": "Instructor creates calendar event",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Student calendar works",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "New event in student calendar",
+      "passed": true,
+      "detail": "Event found"
+    },
+    {
+      "name": "Instructor publishes course poll and notification",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "New poll is visible to enrolled students",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "name": "Instructor updates poll options",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Only intended poll options changed",
+      "passed": true,
+      "detail": 2
+    },
+    {
+      "name": "Student notifications accessible",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Published poll produced notification",
+      "passed": true,
+      "detail": "Notification found"
+    },
+    {
+      "name": "Course announcements and polls",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Populated poll options",
+      "passed": true,
+      "detail": "{\"id\":\"c30383d3-cc4d-4c12-9b96-e984b141e7fa\",\"title\":\"Which revision format would help you most?\",\"content\":null,\"created_at\":\"2026-10-29T14:13:53.475Z\",\"announcer_id\":\"0d9f901e-20b2-4dd0-85ed-b7e73774cac5\",\"type\":\"poll\",\"announcer\":{\"id\":\"0d9f901e-20b2-4dd0-85ed-b7e73774cac5\",\"first_name\":\"Salma\",\""
+    },
+    {
+      "name": "Student votes in course poll",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Admin statistics work with expanded data",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Persistent account session",
+      "passed": true,
+      "detail": "201"
+    },
+    {
+      "name": "Clean up temporary submission",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Clean up temporary course",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Clean up temporary upload",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Clean up temporary upload",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Clean up temporary account",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "Clean up temporary account",
+      "passed": true,
+      "detail": "200"
+    }
+  ]
+}

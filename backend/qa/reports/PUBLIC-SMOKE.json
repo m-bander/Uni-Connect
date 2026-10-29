@@ -1,0 +1,113 @@
+{
+  "origin": "https://unicomnect-test.vercel.app",
+  "checkedAt": "2026-10-27T17:26:40.284Z",
+  "passed": 21,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Public landing page",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "API health",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "student login",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "student safe login payload",
+      "passed": true,
+      "details": "password fields: 0"
+    },
+    {
+      "name": "Course API",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "Seeded course",
+      "passed": true,
+      "details": "Software Testing"
+    },
+    {
+      "name": "Safe instructor records",
+      "passed": true,
+      "details": "password fields: 0"
+    },
+    {
+      "name": "Enrollment survives separate request",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "Assignments API",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "Seeded assignment",
+      "passed": true,
+      "details": "Design a login test suite"
+    },
+    {
+      "name": "Own submission access",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "Student grade change denied",
+      "passed": true,
+      "details": 403
+    },
+    {
+      "name": "student2 login",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "student2 safe login payload",
+      "passed": true,
+      "details": "password fields: 0"
+    },
+    {
+      "name": "Cross-student submission access denied",
+      "passed": true,
+      "details": 403
+    },
+    {
+      "name": "Anonymous chat denied",
+      "passed": true,
+      "details": 401
+    },
+    {
+      "name": "admin login",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "admin safe login payload",
+      "passed": true,
+      "details": "password fields: 0"
+    },
+    {
+      "name": "Hosted statistics procedures",
+      "passed": true,
+      "details": 200
+    },
+    {
+      "name": "Public demo registration disabled",
+      "passed": true,
+      "details": 403
+    },
+    {
+      "name": "Persistent refresh session",
+      "passed": true,
+      "details": 201
+    }
+  ]
+}
