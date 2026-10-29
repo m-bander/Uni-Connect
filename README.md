@@ -87,12 +87,13 @@ Original baseline failures describe older code, not the current website's result
 
 ## Team contributors
 
-| GitHub account | Team role |
+| Contributor | Project role |
 | --- | --- |
-| [mohamedhany-44](https://github.com/mohamedhany-44) | Repository owner and project team |
-| [Ahmed-Ayman22](https://github.com/Ahmed-Ayman22) | Team contributor |
-| [karimElmalt-95](https://github.com/karimElmalt-95) | Team contributor |
-| [Adam-Ehab32](https://github.com/Adam-Ehab32) | Team contributor |
+| **Mohamed Bander** | Project Owner & Lead Developer |
+| **Adam Ehab** | Team Contributor |
+| **Mohamed Hany** | Team Contributor |
+| **Karim Mohamed** | Team Contributor |
+| **Ahmed Aymen** | Team Contributor |
 
 This is the project's team credit list. GitHub's automatic Contributors panel is generated from
 attributed commits; collaborator invitations alone do not add someone to that panel.

@@ -66,7 +66,10 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="max-w-6xl mx-auto px-5 py-8 text-center" id="contributors"><h2 className="text-xl font-bold mb-3">Original application contributors</h2><p className="text-muted-foreground">Marwan Mohammed · Abdulrahman Jalal · Moslem Ahmed</p></section>
+      <section className="max-w-6xl mx-auto px-5 py-8 text-center" id="contributors">
+        <h2 className="text-xl font-bold mb-3">Project contributors</h2>
+        <p className="text-muted-foreground">Mohamed Bander · Adam Ehab · Mohamed Hany · Karim Mohamed · Ahmed Aymen</p>
+      </section>
       <section id="features" className="max-w-6xl mx-auto px-5 py-16">
         <h2 className="text-3xl font-bold mb-3 text-center">Everything you need for the semester</h2>
         <p className="text-muted-foreground text-center mb-8">Your courses, conversations, and coursework together in UniConnect.</p>

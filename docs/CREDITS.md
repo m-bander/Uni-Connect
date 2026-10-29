@@ -18,10 +18,11 @@ Imported baselines:
 
 ### Project team contributors
 
-- [Mohamed Hany — mohamedhany-44](https://github.com/mohamedhany-44): repository owner and project team.
-- [Ahmed-Ayman22](https://github.com/Ahmed-Ayman22): team contributor.
-- [karimElmalt-95](https://github.com/karimElmalt-95): team contributor.
-- [Adam-Ehab32](https://github.com/Adam-Ehab32): team contributor.
+- **Mohamed Bander**: project owner and lead developer.
+- **Adam Ehab**: team contributor.
+- **Mohamed Hany**: team contributor.
+- **Karim Mohamed**: team contributor.
+- **Ahmed Aymen**: team contributor.
 
 Team credits identify the people participating in this project. They do not assert that every
 listed member has already authored a commit, and they do not replace the original application credits.
