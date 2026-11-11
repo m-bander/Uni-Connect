@@ -28,6 +28,10 @@ import { handleError } from "./controllers/errorController";
 import { createRouteHandler } from "uploadthing/express";
 import { uploadRouter } from "./config/uploadthing";
 import { initializeWebSocketServer } from "./lib/socket";
+import { runtimeConfigIssues } from "./config/runtime";
+import { reportServerError } from "./utils/reportServerError";
+import { db } from "./drizzle/db";
+import { sql } from "drizzle-orm";
 
 if (process.env.VERCEL || process.env.UNICONNECT_LEGACY_BASELINE !== "1") process.env.UNICONNECT_PUBLIC_HOST = "1";
 const app = express();
@@ -39,6 +43,25 @@ app.use(cookieParser());
 app.use(express.json({ limit: "2mb" }));
 
 app.get("/api/health", (_req,res) => res.json({status:"ok"}));
+app.use("/api", (_req, res, next) => {
+  const issues = runtimeConfigIssues();
+  if (issues.length) {
+    console.error(JSON.stringify({ operation: "runtime.config", missing: issues }));
+    return res.status(503).json({ message: "Service is not configured. Contact the administrator.", code: "SERVICE_NOT_CONFIGURED" });
+  }
+  next();
+});
+app.get("/api/ready", async (_req, res) => {
+  try {
+    // Read only; verify the login columns and session table, not just TCP connectivity.
+    await db.execute(sql`SELECT id, email, password, "isApproved", role, year FROM users LIMIT 0`);
+    await db.execute(sql`SELECT "userId", token FROM "refreshTokens" LIMIT 0`);
+    res.json({ status: "ready" });
+  } catch (error) {
+    reportServerError("database.readiness", error);
+    res.status(503).json({ message: "Database is unavailable or its schema is not ready.", code: "DATABASE_NOT_READY" });
+  }
+});
 if (process.env.UNICONNECT_PUBLIC_HOST === "1") {
   app.use("/api", sanitizeHostedResponse, hostedAccess);
   app.use("/api", campusRouter);

@@ -54,7 +54,7 @@ try{
    process.env.UNICONNECT_LEGACY_BASELINE="1";
    await run([playwright,"test"],backend);break;
  case "campus-test":await run(["qa/campus-smoke.cjs",process.argv[3]||"http://localhost:3000"],backend);break;
- case "public":await run(["qa/production-health.cjs","https://unicomnect-test.vercel.app"],backend);break;
+ case "public":await run(["qa/production-health.cjs",process.argv[3]||process.env.UNICONNECT_BASE_URL||"https://frontend-iota-gilt-81.vercel.app"],backend);break;
  case "test":await run([playwright,"test"],backend);break;
  case "smoke":await run([playwright,"test","functional.spec.ts","browser.spec.ts"],backend);break;
  case "report":await run([playwright,"show-report","qa/artifacts/html"],backend);break;

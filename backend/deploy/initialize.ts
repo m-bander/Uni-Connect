@@ -9,6 +9,7 @@ import { seedCampus } from "./seed-campus";
 import { retireStarterAccounts } from "../database/application-accounts";
 
 export async function initializeDatabase() {
+  if (process.env.DATABASE_MIGRATION_APPROVED !== "1") throw new Error("Database migration requires DATABASE_MIGRATION_APPROVED=1 after backup and staging review.");
   if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is required.");
   const pool = new Pool({connectionString:process.env.DATABASE_URL,max:1});
   const client=await pool.connect();
@@ -42,12 +43,7 @@ export async function initializeDatabase() {
       }
       await retireStarterAccounts(drizzle(client, { schema }));
     }
-    const tablesRes = await client.query("SELECT tablename FROM pg_tables WHERE schemaname = 'public'");
-    for (const t of tablesRes.rows) {
-      await client.query(`ALTER TABLE "public"."${t.tablename}" ENABLE ROW LEVEL SECURITY`);
-    }
-    await client.query("REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon, authenticated");
-    await client.query("GRANT ALL ON ALL TABLES IN SCHEMA public TO postgres, service_role");
+    // Database-role grants and RLS policies are provider-specific; do not rewrite them here.
     await client.query("COMMIT");
   }catch(error){await client.query("ROLLBACK");throw error}
   finally{client.release();await pool.end()}
