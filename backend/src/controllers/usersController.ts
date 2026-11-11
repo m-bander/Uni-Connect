@@ -17,6 +17,7 @@ import { NotFoundError } from "../utils/errors/errors";
 import { CoursesTable, enrolledIn } from "../drizzle";
 import { MaterialTable } from "../drizzle/schemas/materials";
 import { uploadThingApi, imageStorageKey } from "../config/uploadthing";
+import { reportServerError } from "../utils/reportServerError";
 
 export const updateProfile: RequestHandler = async (
   req: APIRequest<IUsersUpdate>,
@@ -121,7 +122,6 @@ export const createUser: RequestHandler = async (
 
     const hashedPassword = await bcrypt.hash(userData.password, 10);
     const isApproved = (userData.role === "student") || (req.user?.role === "system_admin");
-    console.log(req.user?.role)
 
     await db
       .insert(UsersTable)
@@ -129,7 +129,7 @@ export const createUser: RequestHandler = async (
 
     res.sendStatus(201);
   } catch (err) {
-    console.log(err);
+    reportServerError("users.register", err);
     if (err instanceof z.ZodError) {
       return res.status(400).json({ message: "Invalid User Data" });
     }

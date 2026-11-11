@@ -1,0 +1,20 @@
+name: Authentication regression
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --ignore-scripts
+      - run: node scripts/manage.mjs install
+      - run: node --import tsx --test tests/auth.test.ts
+        working-directory: backend
+      - run: node scripts/manage.mjs build

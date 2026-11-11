@@ -1,6 +1,8 @@
 import z, { ZodError } from "zod";
 import bcrypt from "bcrypt";
-import jwt, { TokenExpiredError } from "jsonwebtoken";
+import jwt, { JsonWebTokenError } from "jsonwebtoken";
+import { tokenSecret } from "../config/runtime";
+import { reportServerError } from "../utils/reportServerError";
 import { RequestHandler } from "express";
 import { APIRequest, RefreshTokenPayload } from "../types/api";
 import {
@@ -75,10 +77,9 @@ export const login: RequestHandler = async (
       user: authUser,
     });
   } catch (err) {
-    console.error("Login error:", err);
     if (err instanceof z.ZodError)
       return res.status(400).json({ message: "Invalid login data" });
-
+    reportServerError("auth.login", err);
     res.status(500).json({ message: "Unexpected server error" });
   }
 };
@@ -111,9 +112,13 @@ export const handleRefreshToken: RequestHandler = async (
 
     const decoded = jwt.verify(
       refreshToken,
-      process.env.REFRESH_TOKEN_SECRET ||
-        "uniconnect_default_refresh_token_secret_key_2026_x99_sec"
+      tokenSecret("REFRESH_TOKEN_SECRET")
     ) as RefreshTokenPayload;
+
+    if (!session.user.isApproved) {
+      clearRefreshTokenCookie(res);
+      return res.status(401).json({ message: "Your account hasn't been approved by the admin yet." });
+    }
 
     clearRefreshTokenCookie(res);
 
@@ -149,15 +154,11 @@ export const handleRefreshToken: RequestHandler = async (
       user,
     });
   } catch (err) {
-    if (err instanceof TokenExpiredError) {
-      const refreshToken = req.cookies.jwt;
-      await db
-        .delete(RefreshTokensTable)
-        .where(eq(RefreshTokensTable.token, refreshToken));
+    if (err instanceof JsonWebTokenError) {
       clearRefreshTokenCookie(res);
-      res.status(401).json({ message: "refresh token is no longer valid." });
+      return res.status(401).json({ message: "refresh token is no longer valid." });
     }
-
+    reportServerError("auth.refresh", err);
     res.status(500).json({ message: "Unexpected server error." });
   }
 };

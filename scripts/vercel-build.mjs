@@ -12,7 +12,4 @@ for(const [folder,args] of [
  if(result.status!==0)process.exit(result.status||1);
 }
 
-if(process.env.DATABASE_URL) {
- const init=spawnSync(process.execPath,["--import","tsx","deploy/initialize.ts"],{cwd:path.join(root,"backend"),stdio:"inherit",env:process.env});
- if(init.status!==0) process.exit(init.status||1);
-}
+// Database changes are a separate, operator-approved release step. Preview builds must never mutate production.

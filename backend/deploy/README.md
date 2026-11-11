@@ -1,12 +1,7 @@
-# Hosted initialization
+# Explicit database initialization
 
-Current operational instructions are in the [deployment guide](../../docs/setup/DEPLOYMENT.md).
+Follow [the deployment guide](../../docs/setup/DEPLOYMENT.md). Vercel builds never run this initializer.
 
-- `initialize.ts`: non-destructive initialization under a transaction/advisory lock.
-- `001_procedures.sql`: database procedures.
-- `002_full_app.sql`: application schema additions.
-- `seed-campus.ts`: one-time fictional campus resources and content.
+`initialize.ts` requires `DATABASE_URL` and `DATABASE_MIGRATION_APPROVED=1` after backup, staging review and operator approval. It changes schema/procedures/constraints inside a transaction and advisory lock. Optional demo seeding can retire starter accounts; leave it disabled on production. This is not a repair for arbitrary existing schemas or permissions.
 
-The Vercel project builds from the repository root. Never enable disposable local QA or legacy
-baseline behavior on a public deployment. Required secrets belong in server configuration,
-not source control or frontend variables.
+Provider-specific role grants and RLS policy changes must be reviewed separately. The generic initializer does not impose Supabase roles or alter all public tables' RLS settings.

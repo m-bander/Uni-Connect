@@ -15,7 +15,9 @@
     "qa:schema": "drizzle-kit generate --config qa/drizzle.config.ts",
     "test:qa": "playwright test",
     "test:qa:report": "playwright show-report qa/artifacts/html",
-    "qa:load": "node qa/load-smoke.cjs"
+    "qa:load": "node qa/load-smoke.cjs",
+    "test:auth": "tsx --test tests/auth.test.ts",
+    "db:initialize": "tsx deploy/initialize.ts"
   },
   "dependencies": {
     "@types/express": "^5.0.5",
